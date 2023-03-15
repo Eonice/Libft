@@ -1,14 +1,8 @@
-CC=gcc
-CFLAGS=-Wall -g
+NAME = libft.a
+CC = gcc
+CFLAGS= -Wall -Werror -Wextra
+SRC = //Los archivos a compilar y juntar.
 
-myprogram: main.o file1.o file2.o
-    $(CC) $(CFLAGS) -o myprogram main.o file1.o file2.o
+OBJ = $(SRC: .c = .o)
 
-main.o: main.c file1.h file2.h
-    $(CC) $(CFLAGS) -c main.c
-
-file1.o: file1.c file1.h
-    $(CC) $(CFLAGS) -c file1.c
-
-file2.o: file2.c file2.h
-    $(CC) $(CFLAGS) -c file2.c
+$(NAME): $(OBJ)
